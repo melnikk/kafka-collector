@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	metricPathFormat = "%s.custom.%s.partition.%s.topic.%s.%s"
+	metricPathFormat = "Kafka.%s.custom.%s.partition.%s.topic.%s.%s"
 )
 
 var (
@@ -72,7 +72,7 @@ func main() {
 
 								updateGauge("CurrentOffset", group, partition, topic, int64(currentOffset))
 								updateGauge("LogEndOffset", group, partition, topic, int64(logEndOffset))
-								updateGauge("Lag", host, partition, topic, int64(lag))
+								updateGauge("Lag", group, partition, topic, int64(lag))
 
 							}
 						}
